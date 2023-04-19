@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="form">
+                <form action="{% url 'search_page' %}" method="get">
+                    {% csrf_token %}
+                    <input name="search" type="search" class="form-control form-input" placeholder="Search anything...">
+                    <i class="fa fa-search"></i>
+                </form>    
+            </div>
+     </div>
+    </div>
+    <div class="container"
+        style="background-color: #C0C0C0; color: #000000; font-family: 'Times New Roman', Times, serif; font-size: 20px; padding: 20px;">
+        <div class="row">
+            {% if words %}
+            {% for word in words %}
+            <div class="col">
+                <li><a href="{% url 'detail_page' word.pk %}" style="color: #000000;">{{word.first_form}}</a></li>
+            </div>
+            <div class="col">{{word.second_form}}</div>
+            <div class="col">{{word.third_form}}</div>
+            <div class="w-100"></div>
+            {% endfor %}
+            {% else %}
+            <h4>Not found? Please try another one :(</h4>
+            {% endif %}
+        </div>
+</div>
+
+{% endblock content %}
