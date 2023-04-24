@@ -1,0 +1,33 @@
+
+<!-- {% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="wrapper bg-white">
+    <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+    <form method="post" class="pt-3">
+        {% csrf_token %}
+        <div class="form-group py-2">
+            <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text"
+                    placeholder="Username or Email Address" required class=""> </div>
+        </div>
+        <div class="form-group py-1 pb-2">
+            <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="text"
+                    placeholder="Enter your Password" required class=""> <button class="btn bg-white text-muted"> <span
+                        class="far fa-eye-slash"></span> </button> </div>
+        </div>
+        <div class="d-flex align-items-start">
+        </div> <button type="submit" class="btn btn-block text-center my-3">Log in</button>
+    </form>
+</div> -->
+
+
+
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+{% endblock %}
