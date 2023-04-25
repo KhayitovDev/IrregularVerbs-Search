@@ -30,7 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local apps
     'word_search', 
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,3 +127,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "admin-view"
+LOGOUT_REDIRECT_URL = "login"
+LOGIN_URL="/login/"
+LOGOUT_URL='/logout/'

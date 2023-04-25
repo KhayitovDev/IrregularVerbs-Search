@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.db.models import Q 
 from django.urls import reverse_lazy
@@ -32,7 +33,7 @@ def detail_page(request, pk):
     context={"data":data}
     return render(request, 'folder/detail.html', context)
 
-class Create(CreateView):
+class Create(LoginRequiredMixin, CreateView):
     model=Word
     fields='__all__'
     template_name='folder/create.html'
